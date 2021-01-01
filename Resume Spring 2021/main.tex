@@ -1,0 +1,237 @@
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.3, 10 May 2020) written by LianTze Lim (liantze@gmail.com). Now compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% If you need to pass whatever options to xcolor
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+%% If you are using \orcid or academicons
+%% icons, make sure you have the academicons
+%% option here, and compile with XeLaTeX
+%% or LuaLaTeX.
+% \documentclass[10pt,a4paper,academicons]{altacv}
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+
+%% AltaCV uses the fontawesome5 and academicons fonts
+%% and packages.
+%% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/academicons for full list of symbols. You MUST compile with XeLaTeX or LuaLaTeX if you want to use academicons.
+
+% Change the page layout if you need to
+\geometry{left=0.8cm,right=0.8cm,top=1cm,bottom=1cm,columnsep=0.75cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+\ifxetexorluatex
+  % If using xelatex or lualatex:
+  \setmainfont{Lato}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+%   \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% Change the colours if you want to
+\definecolor{Navy}{HTML}{000080}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\colorlet{heading}{Navy}
+\colorlet{accent}{Navy}
+\colorlet{headingrule}{Navy}
+\colorlet{tagline}{Navy}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\LARGE\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+%% sample.bib contains your publications
+\addbibresource{sample.bib}
+
+\begin{document}
+\name{James Chen}
+\tagline{Software Engineering}
+
+
+\personalinfo{%
+  % Not all of these are required!
+  \textcolor{black}{\email{james.chen5@carleton.ca}
+\phone{613-600-9672}
+\homepage{j769chen.github.io}
+%  \twitter{@twitterhandle}
+  \linkedin{james23chen}
+  \github{j769chen}
+  %% You MUST add the academicons option to \documentclass, then compile with LuaLaTeX or XeLaTeX, if you want to use \orcid or other academicons commands.
+  % \orcid{0000-0000-0000-0000}
+  %% You can add your own arbtrary detail with
+  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+  % \printinfo{\faPaw}{Hey ho!}[https://example.com/]
+  %% Or you can declare your own field with
+  %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+  % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+  % \gitlab{your_id}
+}}
+
+\makecvheader
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+% \AtBeginEnvironment{itemize}{\small}
+
+%% Set the left/right column width ratio to 6:4.
+\columnratio{0.76}
+
+% Start a 2-column paracol. Both the left and right columns will automatically
+% break across pages if things get too long.
+\begin{paracol}{2}
+\cvsection{Experience}
+
+\cvevent{Data Engineer}{Raven Telemetry}{April 2020 -- August 2020}{Ottawa, Ontario}
+\begin{itemize}
+\item Wrote Python scripts to automate monthly and weekly report generation, drastically reducing man hours needed. 
+\item Used Pandas to process data from over 50 customers to generate performance metrics
+\item Automated report generation process by deploying cronjobs to Kubernetes
+\end{itemize}
+
+\divider
+
+\cvevent{Web Developer}{Environment and Climate Change Canada}{September 2019 -- December 2020}{Toronto, Ontario}
+\begin{itemize}
+\item Used the Web Experience Toolkit to develop various web pages for the Canadian Climate Data and Scenarios site
+\item Wrote scripts using Perl, PHP and JavaScript to create download interfaces for easy access to climate data sets  
+\item Performed regular maintenance including fixing large data sets, using JavaScript to write scripts to efficiently fix errors
+\end{itemize}
+
+\cvsection{Projects}
+
+\cvevent{Drively}{IoT-based smart vehicle control | Arduino, Python, Firebase | Hack the North 2019}{}{}
+\begin{itemize}
+\item Built a system and implemented an algorithm using Arduino to detect drunk drivers using air quality sensor and fingerprint scanner
+\item Wrote a Python script to send air quality and driver data to Firebase in real time 
+\item Designed front-end using HTML-CSS-JS which used Firebase to display live driver status
+\end{itemize}
+
+\divider
+
+\cvevent{BWF Ranking Viewer}{BWF World Tour ranking web app | Python, Flask, BeautifulSoup4}{}{}
+\begin{itemize}
+    \item Developed an SSR app using Python and Flask to display badminton world rankings
+    \item Wrote a script which uses BeautifulSoup4 to fetch the top 100 players from BWF website for all categories (singles, doubles, etc.)
+    \item Used Flask to create a back end which processes user's category selection and renders web page accordingly
+\end{itemize}
+
+\divider
+
+\cvevent{LoL Stats}{League of Legends Performance Evaluation | Python, Riot Games API}{}{}
+\begin{itemize}
+    \item Developed an app that uses the Riot Games API to evaluate a user's recent LoL stats
+    \item Designed an algorithm that compares a user's stats to those of similarly ranked players
+    \item Implemented search filters, allowing users to choose which games they want evaluated, as well as custom tips to give users tangible advice on how to improve
+\end{itemize}
+
+\divider
+
+\cvevent{j769chen.github.io}{Personal Website | HTML, CSS, JavaScript}{}{}
+\begin{itemize}
+    \item Used HTML, CSS, Bootstrap and JavaScript to create a modern-looking personal website
+    \item Independently studied front end development via resources such as LinkedIn Learning
+    \item Implemented many features including modal images, carousels and various animations
+\end{itemize}
+
+%% Switch to the right column. This will now automatically move to the second
+%% page if the content is too long.
+\switchcolumn
+
+\cvsection{Skills}
+\cvevent{Languages}{}{}{}
+\cvtag{Python}
+\cvtag{Java}
+\cvtag{C++}\\
+\cvtag{C}
+\cvtag{JavaScript}
+
+\medskip
+\divider
+
+\cvevent{Frameworks \& Libraries}{}{}{}
+
+\cvtag{Pandas}
+\cvtag{Flask}
+\cvtag{Bootstrap}\\
+\cvtag{BeautifulSoup}
+\cvtag{jQuery}
+
+\medskip
+\divider
+
+\cvevent{Tools}{}{}{}
+\cvtag{Git}
+\cvtag{HTML}
+\cvtag{CSS}\\
+\cvtag{Linux}
+\cvtag{Firebase}
+
+%% Yeah I didn't spend too much time making all the
+%% spacing consistent... sorry. Use \smallskip, \medskip,
+%% \bigskip, \vpsace etc to make adjustments.
+\medskip
+
+\cvsection{Education}
+
+\cvedu{Bachelor's of Computer \par Science, Honours Co-op}{Carleton University}{Sept 2020 -- Present}{Ottawa, On}
+Current GPA: 12.0
+
+\divider\smallskip
+
+\cvedu{Bachelor's of Mechanical Engineering, Honours Co-op}{University of Waterloo}{Sept 2018 -- Apr 2020}{Waterloo, On}
+Ending GPA: 84.74\par\medskip
+\textbf{Awards \& Distinctions}\medskip
+\begin{itemize}
+    \item President's Scholarship
+    \item Class Ranking: 11/94
+\end{itemize}
+
+\medskip
+
+\cvsection{Interests}
+\begin{itemize}
+    \item Badminton
+    \item Fitness/Powerlifting
+    \item Violin
+\end{itemize}
+
+
+
+% \divider
+
+\end{paracol}
+
+
+\end{document}
